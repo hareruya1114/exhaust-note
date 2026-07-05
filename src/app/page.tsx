@@ -46,6 +46,9 @@ export default async function HomePage() {
             key={m.slug}
             href={manufacturerPath(m.slug)}
             icon={MAKER_ICON[m.slug] ?? '🏍️'}
+            imageSrc={m.logo ?? undefined}
+            imageFit="contain"
+            imageAlt={`${m.name} ロゴ`}
             title={m.name}
             tags={`車種 ${counts[i]} 件`}
           />

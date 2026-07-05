@@ -63,6 +63,9 @@ export default async function ManufacturerPage({
             key={b.slug}
             href={bikePath(m.slug, b.slug)}
             icon="🏍️"
+            imageSrc={b.image ?? undefined}
+            imageFit="cover"
+            imageAlt={b.name}
             title={b.name}
             tags={`マフラー ${counts[i]} 種の音を収録`}
           />

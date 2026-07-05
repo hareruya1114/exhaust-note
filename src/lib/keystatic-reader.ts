@@ -4,8 +4,14 @@ import keystaticConfig from '../../keystatic.config';
 // ローカルモードではビルド時にリポジトリ内の src/content/** を読み込む。
 export const reader = createReader(process.cwd(), keystaticConfig);
 
-export type ManufacturerData = { slug: string; name: string; order: number };
-export type BikeData = { slug: string; name: string; manufacturer: string; order: number };
+export type ManufacturerData = { slug: string; name: string; logo: string | null; order: number };
+export type BikeData = {
+  slug: string;
+  name: string;
+  manufacturer: string;
+  image: string | null;
+  order: number;
+};
 export type AffiliateData = { vendor: string; url: string; isPrimary: boolean };
 export type MufflerData = {
   slug: string;
@@ -30,14 +36,19 @@ const byOrderThenName = <T extends { order: number; name: string }>(a: T, b: T) 
 export async function getManufacturers(): Promise<ManufacturerData[]> {
   const all = await reader.collections.manufacturers.all();
   return all
-    .map((m) => ({ slug: m.slug, name: m.entry.name, order: m.entry.order ?? 0 }))
+    .map((m) => ({
+      slug: m.slug,
+      name: m.entry.name,
+      logo: m.entry.logo ?? null,
+      order: m.entry.order ?? 0,
+    }))
     .sort(byOrderThenName);
 }
 
 export async function getManufacturer(slug: string): Promise<ManufacturerData | null> {
   const entry = await reader.collections.manufacturers.read(slug);
   if (!entry) return null;
-  return { slug, name: entry.name, order: entry.order ?? 0 };
+  return { slug, name: entry.name, logo: entry.logo ?? null, order: entry.order ?? 0 };
 }
 
 // ---------- Bikes ----------
@@ -47,6 +58,7 @@ export async function getBikes(): Promise<BikeData[]> {
     slug: b.slug,
     name: b.entry.name,
     manufacturer: b.entry.manufacturer ?? '',
+    image: b.entry.image ?? null,
     order: b.entry.order ?? 0,
   }));
 }
@@ -59,7 +71,13 @@ export async function getBikesByManufacturer(manufacturerSlug: string): Promise<
 export async function getBike(slug: string): Promise<BikeData | null> {
   const entry = await reader.collections.bikes.read(slug);
   if (!entry) return null;
-  return { slug, name: entry.name, manufacturer: entry.manufacturer ?? '', order: entry.order ?? 0 };
+  return {
+    slug,
+    name: entry.name,
+    manufacturer: entry.manufacturer ?? '',
+    image: entry.image ?? null,
+    order: entry.order ?? 0,
+  };
 }
 
 // ---------- Mufflers ----------
