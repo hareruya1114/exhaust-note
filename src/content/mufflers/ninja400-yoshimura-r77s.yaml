@@ -1,0 +1,21 @@
+name: Slip-On R-77S サイクロン
+bike: ninja-400
+brandName: ヨシムラ
+productType: slip-on
+material: チタン / ステンレス
+priceJpy: 79200
+jmcaApproved: true
+description: 重低音寄りで車検対応（JMCA認証）の定番スリップオン。
+sound: null
+soundCaption: アイドリング〜空ぶかしを含む実録サンプル
+order: 1
+affiliates:
+  - vendor: amazon
+    url: https://www.amazon.co.jp/
+    isPrimary: true
+  - vendor: rakuten
+    url: https://www.rakuten.co.jp/
+    isPrimary: false
+  - vendor: webike
+    url: https://www.webike.net/
+    isPrimary: false
