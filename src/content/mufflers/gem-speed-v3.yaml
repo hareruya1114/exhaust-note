@@ -1,0 +1,12 @@
+name: gem speed v3
+bike: reble250
+brandName: gem speed
+productType: slip-on
+material: ステンレススチール
+priceJpy: 40000
+jmcaApproved: false
+description: >-
+  低回転ではレブル特有の鼓動感を強めたような重めの低音がはっきり出て、中回転以降は純正よりも音量が上がってやや荒さのある抜けた音になります。全体的に低音寄りで存在感が強く、静かで上品な音というよりは、ドコドコ感を強調したカスタム系サウンドです。
+sound: /sounds/gem-speed-v3/sound.aac
+order: 0
+affiliates: []
