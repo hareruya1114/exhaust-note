@@ -112,6 +112,18 @@ export default async function MufflerPage({
         <p className="mt-2 text-[13px] leading-relaxed text-titanium-300">{muffler.description}</p>
       )}
 
+      {muffler.image && (
+        <div className="mt-4 overflow-hidden rounded-2xl border border-asphalt-700 bg-asphalt-900">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={muffler.image}
+            alt={`${muffler.brandName} ${muffler.name}`}
+            loading="lazy"
+            className="h-auto w-full object-cover"
+          />
+        </div>
+      )}
+
       <SoundPlayer
         src={src}
         brandLabel={`${muffler.brandName} / ${bike.name}`}
