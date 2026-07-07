@@ -23,6 +23,7 @@ export type MufflerData = {
   priceJpy: number | null;
   jmcaApproved: boolean;
   description: string;
+  image: string | null;
   sound: string | null;
   soundCaption: string;
   order: number;
@@ -93,6 +94,7 @@ function toMuffler(slug: string, entry: any): MufflerData {
     priceJpy: entry.priceJpy ?? null,
     jmcaApproved: Boolean(entry.jmcaApproved),
     description: entry.description ?? '',
+    image: entry.image ?? null,
     sound: entry.sound ?? null,
     soundCaption: entry.soundCaption ?? '',
     order: entry.order ?? 0,
