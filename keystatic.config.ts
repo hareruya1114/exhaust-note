@@ -86,6 +86,12 @@ export default config({
           collection: 'bikes',
           validation: { isRequired: true },
         }),
+        image: fields.image({
+          label: 'マフラーの画像（任意）',
+          description: 'マフラー専用ページに表示されます。未設定なら画像なしで表示。',
+          directory: 'public/mufflers',
+          publicPath: '/mufflers/',
+        }),
         brandName: fields.text({ label: 'ブランド', description: '例: ヨシムラ' }),
         productType: fields.select({
           label: 'タイプ',
